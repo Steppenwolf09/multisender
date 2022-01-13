@@ -19,6 +19,7 @@ export class EthereumService {
   private ethContract
   private ws
   private web3
+  private https
   constructor(
     private ethConfig:ConfigService
   ) {
@@ -28,6 +29,7 @@ export class EthereumService {
     this.chainId = ethConfig.get<number>('EthereumConfig.chainId')
     this.privateKey = ethConfig.get<string>('EthereumConfig.privateKey')
     this.ethContract = ethConfig.get<string>('EthereumConfig.ethContract')
+    this.https = ethConfig.get<string>('EthereumConfig.https')
     this.ws = ethConfig.get<string>('TokenConfig.tokenWebSocketInfura')
     this.web3 = new Web3(this.ws)
   }
